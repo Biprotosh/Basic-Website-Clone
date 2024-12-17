@@ -1,0 +1,388 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    font-style: normal;
+    color: #fff;
+}
+
+html, body{
+    height: 100%;
+    width: 100%;
+}
+
+#nav{
+    width: 100%;
+    height: 140px;
+    /* background-color: red; */
+    display: flex;
+    align-items: center;
+    gap: 60px;
+    padding: 0px 120px;
+    justify-items: flex-start;
+    position: fixed; /* It will fix the nav bar when we scroll down */
+    z-index: 99;
+}
+
+#nav img{
+    height: 75px;
+}
+
+#nav h4{
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+#cursor{
+    height: 25px;
+    width: 25px;
+    background-color: #c8ff00;
+    border-radius: 50%;
+    position: fixed;
+    z-index: 99;
+}
+
+#cursorBlur{
+    height: 300px;
+    width: 300px;
+    background-color: #c8ff00;
+    border-radius: 50%;
+    position: fixed;
+    filter: blur(180px);
+    z-index: 9;
+}
+
+video{
+    height: 100%;
+    width: 100%;
+    object-fit: cover; /* It will cover the object to the window */
+    position: fixed;
+    z-index: -1;
+}
+
+#main{
+    position: relative;
+    background-color: rgba(0, 0, 0, 0.473);
+}
+
+#page1{
+    /* height: 100%; /* Main ka height ka 100%, but main meto height hi nahi hay */
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 10;
+}
+
+#page1 h1{
+    font-size: 140px;
+    font-weight: 900;
+    width: 80%;
+    position: relative;
+    text-transform: uppercase;
+    line-height: 0.9;
+}
+
+/* Psudo elements */
+#page1 h1::before{
+    content: 'Eat. Drink. Play.';
+    position: absolute;
+    color: black;
+    top: -5px;
+    left: -10px;
+    -webkit-text-stroke: 1px #c8ff00; /* it creates the border only on the texts */
+    z-index: -1;
+}
+
+#page1 h2{
+    font-size: 35px;
+    font-weight: 800;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#page1 p{
+    font-size: 22px;
+    width: 50%;
+}
+
+#page2{
+    min-height: 100vh;
+    width: 100%;
+    z-index: 10;
+
+}
+
+#scroller{
+    white-space: nowrap;
+    /* overflow-x: auto;
+    overflow-y: hidden; */
+    position: relative;
+    z-index: 10;
+}
+
+#scroller-in{
+    display: inline-block;
+    white-space: nowrap;
+    animation: scroll;
+    animation-duration: 25s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+#scroller h4{
+    display: inline-block;
+    font-size: 120px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: black;
+    font-family: sans-serif;
+    -webkit-text-stroke: 2px #fff;
+    transition: color 0.3s;
+}
+
+#scroller h4:hover{
+    color: #c8ff00;
+    -webkit-text-stroke: 0;
+}
+
+@keyframes scroll {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+
+#about-us{
+    height: 40vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 50px;
+    position: relative;
+    margin-top: 90px;
+    z-index: 10;
+}
+
+#about-us img{
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+}
+
+#about-us-in{
+    width: 50%;
+    text-align: center;
+}
+
+#about-us-in h3{
+    font-size: 50px;
+    text-transform: uppercase;
+    font-weight: 900;
+    margin-bottom: 30px;
+}
+
+#about-us-in p{
+    font-size: 20px;
+    line-height: 40px;
+}
+
+#cards-container{
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 60px;
+    position: relative;
+    margin-top: 100px;
+    z-index: 10;
+}
+
+.cards{
+    height: 90%;
+    width: 25%;
+    border-radius: 20px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    transition: all ease-in-out 0.35s;
+}
+
+#card1{
+    background-image: url(home-toptracer-1024x682.avif);
+}
+
+#card2{
+    background-image: url(hero-4-1024x1024.avif);
+}
+
+#card3{
+    background-image: url(home-lessons-1024x682.avif);
+}
+
+.overlay{
+    height: 100%;
+    width: 100%;
+    background-color: #9dc900;
+    padding: 30px;
+    padding-top: 150px;
+    opacity: 0;
+    transition: all ease-in-out 0.35s;
+}
+
+.overlay h4{
+    color: #000;
+    font-size: 40px;
+    font-weight: 900;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.overlay p{
+    color: #000;
+    font-size: 20px;
+    line-height: 30px;
+}
+
+.overlay:hover{
+    opacity: 1;
+}
+
+.cards:hover{
+    transform: rotate3d(-1,1,0,20deg);
+}
+
+#green-div{
+    height: 40vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: linear-gradient(to left bottom, #3AA637, #ACE023);
+    position: relative;
+    z-index: 10;
+}
+
+#green-div h4{
+    width: 50%;
+    font-size: 25px;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #000;
+    text-align: center;
+}
+
+#green-div img{
+    height: 100%;
+    width: 14%;
+    object-fit: cover;
+}
+
+#page3{
+    height: 100vh;
+    width: 100%;
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#page3 > p{
+    text-transform: uppercase;
+    font-size: 30px;
+    font-weight: 900;
+    width: 65%;
+    text-align: center;
+    line-height: 50px;
+}
+
+#page3 img{
+    position: absolute;
+    height: 60px;
+}
+
+#page3 #colon1{
+    left: 10%;
+    top: 20%;
+}
+
+#page3 #colon2{
+    right: 10%;
+    bottom: 20%;
+}
+
+#page4{
+    height: 30vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 70px;
+    position: relative;
+}
+
+.elem{
+    height: 70%;
+    width: 26%;
+    overflow: hidden;
+    border-radius: 20px;
+    position: relative;
+}
+
+.elem h2{
+    height: 100%;
+    width: 100%;
+    background-color: #c8ff00;
+    display: flex;
+    align-items: center;
+    font-size: 30px;
+    color: black;
+    font-weight: 900;
+    text-transform: uppercase;
+    justify-content: center;
+    position: absolute;
+    z-index: 10;
+    transition: all ease-in-out 0.5s;
+}
+
+.elem img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    scale: 1.1;
+    transition: all ease-in-out 0.5s;
+}
+
+.elem:hover h2{
+    color: #fff;
+    background-color: transparent;
+}
+
+.elem:hover img{
+    scale: 1;
+}
+
+#page4 h1{
+    font-size: 81px;
+    position: absolute;
+    top: -20%;
+    color: black;
+    font-weight: 900;
+    font-family: sans-serif;
+    -webkit-text-stroke: 1px #fff;
+}
+
+#footer{
+    height: 40vh;
+    width: 100%;
+    background: linear-gradient(to left bottom, #3AA637, #ACE023);
+}
